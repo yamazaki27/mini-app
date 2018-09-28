@@ -1,0 +1,11 @@
+<div class="container">
+  <h3 style="te">投稿一覧</h3>
+  <% @posts.each do |post| %>
+    <span>投稿者 : </span><%= post.user.nickname%>
+    <p style="font-size: 30px;"><%= post.text %></p>
+    <p style="border-bottom: solid 1px brown;"></p>
+  <% end %>
+  <div class="pagination #8d6e63 brown yamazaki" style="text-align:center;">
+    <%= paginate(@posts) %>
+  </div>
+</div>

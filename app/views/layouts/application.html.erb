@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample</title>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+  <style type="text/css" href="./style.css"></style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+<body>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+    <nav class="#8d6e63 brown ">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">POSTS BOX </a>
+        <% if user_signed_in?%>
+          <ul id="nav-mobile" class="right hide-on-med-and-down" style="padding-right: 10px;">
+            <li>
+              <a href="/users/<%= current_user.id %>">My Page</a>
+            </li>
+            <li>
+              <%= link_to "New Post", new_post_path, class: "post" %>
+            </li>
+            <li>
+              <%= link_to "Log Out", destroy_user_session_path %>
+            </li>
+            <li style="color: orange; font-size: 30px;"><%= current_user.nickname %>
+            </li>
+          </ul>
+        <% else %>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+              <%= link_to "Sign In", new_user_registration_path, class: 'post' %>
+            </li>
+            <li>
+              <%= link_to "Log In", new_user_session_path, class: "post"%>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    </nav>
+
+<%= yield %>
+
+<script type="text/javascript" src="./app.js"></script>
+</body>
+</html>
